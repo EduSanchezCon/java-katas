@@ -22,10 +22,10 @@ public class PredicateFizzBuzz extends FizzBuzz
     protected String transform(final Integer i){
 
         String transformed =  conditions.entrySet().stream()
-                .filter(e -> e.getKey().test(i))
+                .filter(entry -> entry.getKey().test(i))
                 .reduce(
                         "",
-                        (r,e) -> r+e.getValue(),
+                        (accumulator, entry) -> accumulator + entry.getValue(),
                         (a,b) -> a
                 );
 

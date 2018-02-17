@@ -22,10 +22,10 @@ public class ParameterizedFizzBuzz extends FizzBuzz
     protected String transform(final Integer i){
 
         String transformed =  conditions.entrySet().stream()
-                .filter(e -> i % e.getKey() == 0)
+                .filter(entry -> i % entry.getKey() == 0)
                 .reduce(
                         "",
-                        (r,e) -> r+e.getValue(),
+                        (accumulator, entry) -> accumulator + entry.getValue(),
                         (a,b) -> a
                 );
 
