@@ -16,11 +16,13 @@ public class FizzBuzz
 
 
     private static String transform(Integer i){
-        if (i % 3 > 0 && i % 5 > 0) return String.valueOf(i);
+
         String response = "";
+
         if (i % 3 == 0) response = "Fizz";
         if (i % 5 == 0) response += "Buzz";
-        return response;
+
+        return response.length()==0 ? String.valueOf(i) : response;
     }
 
 
