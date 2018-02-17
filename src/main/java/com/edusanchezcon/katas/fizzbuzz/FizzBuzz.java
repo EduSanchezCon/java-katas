@@ -8,21 +8,12 @@ import java.util.stream.IntStream;
 public class FizzBuzz
 {
 
-    public FizzBuzz() {
-    }
-
-    public static String generate(int first, int last){
+    public static List<String> transformList(int first, int last){
         return IntStream.rangeClosed(first, last).boxed()
-
                 .map(FizzBuzz::transform)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.toList());
     }
 
-
-    private static List<Integer> generateList(int first, int last){
-
-        return IntStream.rangeClosed(first, last).boxed().collect(Collectors.toList());
-    }
 
     private static String transform(Integer i){
         if (i % 3 > 0 && i % 5 > 0) return String.valueOf(i);

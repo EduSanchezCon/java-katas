@@ -8,13 +8,23 @@ import java.util.stream.IntStream;
 public class ParameterizedFizzBuzz
 {
 
-    private Map<Integer, String> conditions = new LinkedHashMap<>();
+    private final Map<Integer, String> conditions = new LinkedHashMap<>();
 
-    public ParameterizedFizzBuzz() {
-    }
 
     public void addCondition(int i, String transform) {
+
         conditions.put(i, transform);
+    }
+
+    public List<String> transformList(List<Integer> originList) {
+
+        List<String> transformedList = new ArrayList<>();
+
+        for (Integer i : originList){
+            transformedList.add( transform(i) );
+        }
+
+        return  transformedList;
     }
 
     private String transform(final Integer i){
@@ -28,18 +38,6 @@ public class ParameterizedFizzBuzz
                 );
 
         return transformed.equals("") ? String.valueOf(i) : transformed;
-    }
-
-
-    public List<String> transformList(List<Integer> originList) {
-
-        List<String> transformedList = new ArrayList<>();
-
-        for (Integer i : originList){
-            transformedList.add( transform(i) );
-        }
-
-        return  transformedList;
     }
 
 }

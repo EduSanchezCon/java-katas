@@ -12,13 +12,23 @@ import java.util.stream.IntStream;
 public class PredicateFizzBuzz
 {
 
-    private Map<Predicate<Integer>, String> conditions = new LinkedHashMap<>();
+    private final Map<Predicate<Integer>, String> conditions = new LinkedHashMap<>();
 
-    public PredicateFizzBuzz() {
-    }
 
     public void addCondition(Predicate<Integer> condition, String transform) {
+
         conditions.put(condition, transform);
+    }
+
+    public List<String> transformList(List<Integer> originList) {
+
+        List<String> transformedList = new ArrayList<>();
+
+        for (Integer i : originList){
+            transformedList.add( transform(i) );
+        }
+
+        return  transformedList;
     }
 
 
@@ -33,18 +43,6 @@ public class PredicateFizzBuzz
                 );
 
         return transformed.equals("") ? String.valueOf(i) : transformed;
-    }
-
-
-    public List<String> transformList(List<Integer> originList) {
-
-        List<String> transformedList = new ArrayList<>();
-
-        for (Integer i : originList){
-            transformedList.add( transform(i) );
-        }
-
-        return  transformedList;
     }
 
 }

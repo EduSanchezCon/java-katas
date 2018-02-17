@@ -2,6 +2,9 @@ package com.edusanchezcon.katas.fizzbuzz;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FizzBuzzTest {
@@ -9,32 +12,36 @@ public class FizzBuzzTest {
     @Test
     public void shouldWriteReceivedNumbers(){
 
-        final String actualResponse = FizzBuzz.generate(1, 2);
+        final List<String> actualResponse = FizzBuzz.transformList(1, 2);
 
-        assertEquals("1, 2", actualResponse);
+        assertEquals(Arrays.asList("1", "2"), actualResponse);
     }
 
     @Test
     public void shouldWriteFizzWhenNumberIsDivisibleBy3(){
 
-        final String actualResponse = FizzBuzz.generate(1,3);
+        final List<String> actualResponse = FizzBuzz.transformList(1,3);
+        List<String> expectedList = Arrays.asList("1", "2", "Fizz");
 
-        assertEquals("1, 2, Fizz", actualResponse);
+        assertEquals(expectedList, actualResponse);
     }
 
     @Test
     public void shouldWriteBuzzWhenNumberIsDivisibleBy5(){
 
-        final String actualResponse = FizzBuzz.generate(1,5);
+        final List<String> actualResponse = FizzBuzz.transformList(1,5);
+        List<String> expectedList = Arrays.asList("1", "2", "Fizz", "4", "Buzz");
 
-        assertEquals("1, 2, Fizz, 4, Buzz", actualResponse);
+        assertEquals(expectedList, actualResponse);
     }
 
     @Test
     public void shouldWriteFizzBuzzWhenNumberIsDivisibleBy3And5(){
 
-        final String actualResponse = FizzBuzz.generate(1,15);
+        final List<String> actualResponse = FizzBuzz.transformList(1,15);
+        List<String> expectedList = Arrays.asList(
+                "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz");
 
-        assertEquals("1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz", actualResponse);
+        assertEquals(expectedList, actualResponse);
     }
 }

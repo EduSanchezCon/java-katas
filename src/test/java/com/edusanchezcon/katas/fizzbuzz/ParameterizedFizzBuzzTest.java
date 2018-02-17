@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.Matchers.is;
+
 public class ParameterizedFizzBuzzTest {
 
     @Test
@@ -21,7 +23,7 @@ public class ParameterizedFizzBuzzTest {
 
         List<String> expectedList = Arrays.asList("1", "2", "3", "4", "5");
 
-        MatcherAssert.assertThat(actualList, Matchers.is(expectedList));
+        MatcherAssert.assertThat(actualList, is(expectedList));
 
     }
 
@@ -36,7 +38,7 @@ public class ParameterizedFizzBuzzTest {
 
         List<String> expectedList = Arrays.asList("1", "2", "Fizz", "4", "5", "Fizz");
 
-        MatcherAssert.assertThat(actualList, Matchers.is(expectedList));
+        MatcherAssert.assertThat(actualList, is(expectedList));
 
     }
 
@@ -53,7 +55,7 @@ public class ParameterizedFizzBuzzTest {
         List<String> expectedList = Arrays.asList(
                 "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz");
 
-        MatcherAssert.assertThat(actualList, Matchers.is(expectedList));
+        MatcherAssert.assertThat(actualList, is(expectedList));
 
     }
 
@@ -71,7 +73,7 @@ public class ParameterizedFizzBuzzTest {
         List<String> expectedList = Arrays.asList(
                 "1", "Pss", "Fizz", "Pss", "Buzz", "PssFizz", "7", "Pss", "Fizz", "PssBuzz", "11", "PssFizz", "13", "Pss", "FizzBuzz");
 
-        MatcherAssert.assertThat(actualList, Matchers.is(expectedList));
+        MatcherAssert.assertThat(actualList, is(expectedList));
 
     }
 }
