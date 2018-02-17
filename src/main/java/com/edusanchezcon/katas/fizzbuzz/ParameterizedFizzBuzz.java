@@ -1,9 +1,10 @@
 package com.edusanchezcon.katas.fizzbuzz;
 
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class ParameterizedFizzBuzz
 {
@@ -18,13 +19,9 @@ public class ParameterizedFizzBuzz
 
     public List<String> transformList(List<Integer> originList) {
 
-        List<String> transformedList = new ArrayList<>();
-
-        for (Integer i : originList){
-            transformedList.add( transform(i) );
-        }
-
-        return  transformedList;
+        return originList.stream()
+                .map(this::transform)
+                .collect(Collectors.toList());
     }
 
     private String transform(final Integer i){

@@ -8,8 +8,8 @@ import java.util.stream.IntStream;
 public class FizzBuzz
 {
 
-    public static List<String> transformList(int first, int last){
-        return IntStream.rangeClosed(first, last).boxed()
+    public static List<String> transformList(List<Integer> originList){
+        return originList.stream()
                 .map(FizzBuzz::transform)
                 .collect(Collectors.toList());
     }
