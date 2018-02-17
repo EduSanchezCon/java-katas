@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class PredicateFizzBuzz
+public class PredicateFizzBuzz extends FizzBuzz
 {
 
     private final Map<Predicate<Integer>, String> conditions = new LinkedHashMap<>();
@@ -18,14 +18,8 @@ public class PredicateFizzBuzz
         conditions.put(condition, transform);
     }
 
-    public List<String> transformList(List<Integer> originList) {
-
-        return originList.stream()
-                .map(this::transform)
-                .collect(Collectors.toList());
-    }
-
-    private String transform(final Integer i){
+    @Override
+    protected String transform(final Integer i){
 
         String transformed =  conditions.entrySet().stream()
                 .filter(e -> e.getKey().test(i))

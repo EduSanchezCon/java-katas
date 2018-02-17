@@ -8,14 +8,14 @@ import java.util.stream.IntStream;
 public class FizzBuzz
 {
 
-    public static List<String> transformList(List<Integer> originList){
+    public List<String> transformList(List<Integer> originList){
         return originList.stream()
-                .map(FizzBuzz::transform)
+                .map(this::transform)
                 .collect(Collectors.toList());
     }
 
 
-    private static String transform(Integer i){
+    protected String transform(Integer i){
 
         String response = "";
 
