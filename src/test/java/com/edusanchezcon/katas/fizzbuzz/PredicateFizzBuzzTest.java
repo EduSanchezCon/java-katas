@@ -1,6 +1,5 @@
-package com.edusancon.katas.fizzbuzz;
+package com.edusanchezcon.katas.fizzbuzz;
 
-import com.edusancon.katas.fizzbuzz.PredicateFizzBuzz;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;

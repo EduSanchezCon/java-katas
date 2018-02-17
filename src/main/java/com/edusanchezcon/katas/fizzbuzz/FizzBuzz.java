@@ -1,4 +1,4 @@
-package com.edusancon.katas.fizzbuzz;
+package com.edusanchezcon.katas.fizzbuzz;
 
 
 import java.util.List;

@@ -1,6 +1,5 @@
-package com.edusancon.katas.fizzbuzz;
+package com.edusanchezcon.katas.fizzbuzz;
 
-import com.edusancon.katas.fizzbuzz.FizzBuzz;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

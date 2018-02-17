@@ -1,6 +1,5 @@
-package com.edusancon.katas.fizzbuzz;
+package com.edusanchezcon.katas.fizzbuzz;
 
-import com.edusancon.katas.fizzbuzz.ParameterizedFizzBuzz;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -45,8 +44,8 @@ public class ParameterizedFizzBuzzTest {
     public void givenFizzBuzzConditionsThenShouldReturnOriginalFizzBuzz(){
 
         final ParameterizedFizzBuzz fizzBuzz = new ParameterizedFizzBuzz();
-        fizzBuzz.addCondition(5, "Buzz");
         fizzBuzz.addCondition(3, "Fizz");
+        fizzBuzz.addCondition(5, "Buzz");
 
         final List<Integer> originList = IntStream.rangeClosed(1,15).boxed().collect(Collectors.toList());
         List<String> actualList = fizzBuzz.transformList(originList);
