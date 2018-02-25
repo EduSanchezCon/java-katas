@@ -14,9 +14,9 @@ public class SudokuBoard {
 
         IntStream.range(0, 9).forEach(
                 i -> {
-                    lines[i] = new GroupOfNine( getLine(i));
-                    columns[i] = new GroupOfNine( getColumn(i));
-                    quadrants[i] = new GroupOfNine( getQuadrant(i));
+                    lines[i] = new GroupOfNine( collectLine(i));
+                    columns[i] = new GroupOfNine( collectColumn(i));
+                    quadrants[i] = new GroupOfNine( collectQuadrant(i));
                 }
         );
     }
@@ -32,19 +32,19 @@ public class SudokuBoard {
         return true;
     }
 
-    private int[] getLine(final Integer i) {
+    private int[] collectLine(final Integer i) {
         return IntStream.range(0, 9)
                 .map(j -> cells[i*9 + j])
                 .toArray();
     }
 
-    private int[] getColumn(final Integer i) {
+    private int[] collectColumn(final Integer i) {
         return IntStream.range(0, 9)
                 .map(j -> cells[j*9 + i])
                 .toArray();
     }
 
-    private int[] getQuadrant(final Integer q) {
+    private int[] collectQuadrant(final Integer q) {
         int i = q / 3;
         int j = q % 3;
         return IntStream.range(0, 3)
