@@ -1,6 +1,7 @@
-package com.edusanchezcon.katas.sudoku.mother;
+package com.edusanchezcon.katas.sudoku;
 
 import com.edusanchezcon.katas.sudoku.SudokuBoard;
+import com.edusanchezcon.katas.sudoku.mother.SudokuBoardMother;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;

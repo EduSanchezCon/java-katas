@@ -1,8 +1,9 @@
 package com.edusanchezcon.katas.sudoku;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class SudokuBoard {
+public class SudokuBoard implements Cloneable{
 
     private int[] cells;
     private GroupOfNine[] lines = new GroupOfNine[9];
@@ -19,6 +20,8 @@ public class SudokuBoard {
                     quadrants[i] = new GroupOfNine( collectQuadrant(i));
                 }
         );
+
+
     }
 
     public boolean isSolved(){
@@ -51,5 +54,55 @@ public class SudokuBoard {
                 .flatMap(x -> IntStream.range(0, 3)
                 .map(y -> cells[9*(3*i+x) + 3*j+y]))
                 .toArray();
+    }
+
+    @Override
+    public SudokuBoard clone() {
+        return new SudokuBoard(Arrays.copyOf(this.cells, this.cells.length));
+    }
+
+
+    public GroupOfNine getLineAtIndex(int p) {
+        return lines[p/9];
+    }
+
+    public GroupOfNine getColumnAtIndex(int p) {
+        return columns[p%9];
+    }
+
+    public GroupOfNine getQuadrantAtIndex(int p) {
+        return quadrants[3 * (p/(9*3)) + (p%9)/3];
+    }
+
+    public int getCellValue(int index) {
+        return cells[index];
+    }
+
+    public void setCellValue(int index, Integer n){
+        cells[index] = n;
+
+        getLineAtIndex(index).get().remove(n);
+        getColumnAtIndex(index).get().remove(n);
+        getQuadrantAtIndex(index).get().remove(n);
+    }
+
+    public void printState(){
+        IntStream.range(0,9).forEach(i -> System.out.println("Line-" +i+ lines[i]));
+        IntStream.range(0,9).forEach(i -> System.out.println("Column-" +i+ columns[i]));
+        IntStream.range(0,9).forEach(i -> System.out.println("Quadrant-" +i+ quadrants[i]));
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder(200);
+        for (int y=0; y<9; y++){
+            for (int x=0; x<9; x++) {
+                builder.append(cells[y * 9 + x]).append(" ");
+                if (x%3==2) builder.append("  ");
+            }
+            builder.append("\n");
+            if (y%3 == 2) builder.append("\n");
+        }
+        return builder.toString();
     }
 }

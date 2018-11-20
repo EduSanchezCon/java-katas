@@ -19,6 +19,20 @@ class GroupOfNineTest extends Specification {
         t << [true, true, true, false, false]
     }
 
+    def "should show its remaining set of elements"(){
+
+        expect:
+        new GroupOfNine(n).get() == s
+
+        where:
+        n << [[1,2,3,4,5,6,7,8,9] as int[],
+              [1,2,3,4,5,3,7,8,9] as int[],
+              [2,0,4,0,6,0,9,0,0] as int[]]
+        s << [[] as Set<Integer>,
+              [6] as Set<Integer>,
+              [1,3,5,7,8] as Set<Integer>]
+    }
+
     /*
     def "given a position should return all its possible values"(){
 
